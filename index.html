@@ -65,7 +65,9 @@
     .header{background:var(--header-bg);color:#fff;padding:30px 40px 20px;text-align:center;position:relative;}
     .header h1{font-family:'Mali',cursive;margin:6px 0 0;font-size:30px;letter-spacing:.5px;}
     .header p{margin:6px 0 16px;opacity:.9;font-size:15px;}
-    .header-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;max-width:1300px;margin:0 auto;}
+    .header-actions{display:flex;justify-content:center;align-items:center;gap:4px;flex-wrap:wrap;max-width:fit-content;margin:0 auto 6px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:999px;padding:6px;backdrop-filter:blur(8px);}
+    .header-actions .btn-pill{background:transparent;box-shadow:none;transform:translateY(0);transition:background .25s ease, color .25s ease, transform .25s ease, box-shadow .25s ease;}
+    .header-actions .btn-pill:hover{background:#ffffff;color:var(--primary-color);transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,0.28);}
     .btn-pill{background:rgba(255,255,255,0.18);border:none;color:#fff;padding:8px 16px;border-radius:20px;cursor:pointer;font-family:'Sarabun';font-weight:600;font-size:14px;backdrop-filter:blur(5px);transition:background .2s; display:flex; align-items:center; gap:6px;}
     .btn-pill:hover{background:rgba(255,255,255,0.3);}
     .theme-switch-wrapper{display:flex;align-items:center;gap:8px;font-size:15px;}
@@ -105,7 +107,7 @@
     }
     @media(min-width:1700px){
       .system-panel{max-width:1520px;}
-      .header-actions,.tab-bar{max-width:1520px;}
+      .tab-bar{max-width:1520px;}
     }
 
     @media(max-width:768px){
@@ -494,7 +496,7 @@
     <div class="section-title">🧑‍⚖️ 2. ข้อมูลผู้ประกัน (นายประกัน)</div>
     <label class="self-bail-toggle">
       <input type="checkbox" id="isSelfBail" onchange="toggleSelfBail()">
-      ผู้ต้องหาประกันตนเอง <span class="opt">(นายประกันเป็นบุคคลเดียวกับผู้ต้องหา — ระบบจะคัดลอกข้อมูลจากผู้ต้องหาให้อัตโนมัติ และปรับข้อความในเอกสารให้ตรงกับกรณีนี้)</span>
+      ผู้ต้องหาประกันตนเอง <span class="opt">(นายประกันเป็นบุคคลเดียวกับผู้ต้องหา — กรอกข้อมูลผู้ประกันด้านล่างให้เสร็จก่อน แล้วระบบจะคัดลอกไปเติมช่องผู้ต้องหาให้อัตโนมัติ พร้อมปรับข้อความในเอกสารให้ตรงกับกรณีนี้)</span>
     </label>
     <div class="grid-12">
       <div class="form-group col-span-2"><label>คำนำหน้า</label><select id="g_title"><option>นาย</option><option>นาง</option><option>นางสาว</option></select></div>
@@ -515,14 +517,6 @@
       <div class="form-group col-span-3"><label>ตำบล/แขวง <span class="opt">(พิมพ์ค้นหาได้)</span></label><input type="text" id="g_tambon" autocomplete="off" placeholder="พิมพ์เพื่อค้นหา..."><div class="dropdown-panel hidden addr-suggest" id="g_tambon_sugg"></div></div>
       <div class="form-group col-span-3"><label>อำเภอ/เขต <span class="opt">(พิมพ์ค้นหาได้)</span></label><input type="text" id="g_amphoe" autocomplete="off" placeholder="พิมพ์เพื่อค้นหา..."><div class="dropdown-panel hidden addr-suggest" id="g_amphoe_sugg"></div></div>
       <div class="form-group col-span-2"><label>จังหวัด</label><input type="text" id="g_province" autocomplete="off"><div class="dropdown-panel hidden addr-suggest" id="g_province_sugg"></div></div>
-    </div>
-
-    <div class="info-panel" id="cashFields">
-      <h5>💵 หลักทรัพย์ที่ใช้ — เงินสด</h5>
-      <div class="grid-2">
-        <div class="form-group"><label>จำนวนเงินที่วางประกัน (บาท)</label><input type="number" id="cash_amount" min="0"></div>
-        <div class="form-group"><label>แปลงตัวหนังสืออัตโนมัติ</label><input type="text" id="cash_amount_text" readonly style="color:var(--success-color); font-weight:bold;"></div>
-      </div>
     </div>
 
     <div class="info-panel" id="posFields" style="display:none; border-color:var(--warning-color); background:rgba(217, 119, 6, 0.04);">
@@ -631,6 +625,14 @@
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
       <button type="button" class="action-btn outline" onclick="addPropRow()">➕ เพิ่มรายการหลักทรัพย์</button>
       <div style="font-weight:bold; color:var(--success-color);">ยอดรวม: <span id="propSumCell" style="font-size:18px;">0</span> บาท</div>
+    </div>
+
+    <div class="info-panel" id="cashFields">
+      <h5>💵 หลักทรัพย์ที่ใช้ — เงินสด</h5>
+      <div class="grid-2">
+        <div class="form-group"><label>จำนวนเงินที่วางประกัน (บาท)</label><input type="number" id="cash_amount" min="0"></div>
+        <div class="form-group"><label>แปลงตัวหนังสืออัตโนมัติ</label><input type="text" id="cash_amount_text" readonly style="color:var(--success-color); font-weight:bold;"></div>
+      </div>
     </div>
 
     <div class="section-title">📝 5. ข้อมูลบันทึกเสนอสัญญา (เสนอ ผกก.)</div>
@@ -1484,20 +1486,21 @@
   }
 
   // ---------- ผู้ต้องหาประกันตนเอง (นายประกัน = ผู้ต้องหาคนเดียวกัน) ----------
+  // ผู้ใช้กรอกข้อมูล "ผู้ประกัน" ก่อน แล้วติ๊กช่องนี้ ระบบจะคัดลอกข้อมูลจากผู้ประกัน ไปเติมช่อง "ผู้ต้องหา" ให้อัตโนมัติ (และล็อกช่องผู้ต้องหาไว้)
   const SELF_BAIL_FIELD_MAP = {g_title:'d_title', g_fname:'d_fname', g_lname:'d_lname', g_age:'d_age', g_idcard:'d_idcard', g_addr1:'d_addr1', g_tambon:'d_tambon', g_amphoe:'d_amphoe', g_province:'d_province'};
-  function syncGuarantorFromDefendant(){
+  function syncDefendantFromGuarantor(){
     Object.entries(SELF_BAIL_FIELD_MAP).forEach(([gId, dId]) => {
       const gEl = document.getElementById(gId), dEl = document.getElementById(dId);
-      if(gEl && dEl) gEl.value = dEl.value;
+      if(gEl && dEl) dEl.value = gEl.value;
     });
   }
   function applySelfBailState(){
     const isSelf = document.getElementById('isSelfBail').checked;
-    Object.keys(SELF_BAIL_FIELD_MAP).forEach(gId => {
-      const gEl = document.getElementById(gId);
-      if(gEl){ gEl.disabled = isSelf; gEl.classList.toggle('self-synced', isSelf); }
+    Object.values(SELF_BAIL_FIELD_MAP).forEach(dId => {
+      const dEl = document.getElementById(dId);
+      if(dEl){ dEl.disabled = isSelf; dEl.classList.toggle('self-synced', isSelf); }
     });
-    if(isSelf) syncGuarantorFromDefendant();
+    if(isSelf) syncDefendantFromGuarantor();
   }
   function toggleSelfBail(){
     applySelfBailState();
@@ -2257,12 +2260,12 @@
     syncChargeLabelFromInput();
     initThailandAddress();
 
-    // เมื่อกรอกข้อมูลผู้ต้องหา ถ้าติ๊ก "ผู้ต้องหาประกันตนเอง" ไว้ ให้ข้อมูลนายประกันตามไปด้วยทันที
-    Object.values(SELF_BAIL_FIELD_MAP).forEach(dId => {
-      const el = document.getElementById(dId);
+    // เมื่อกรอกข้อมูลผู้ประกันเพิ่มเติมภายหลัง ถ้าติ๊ก "ผู้ต้องหาประกันตนเอง" ไว้ ให้ข้อมูลผู้ต้องหาตามไปด้วยทันที
+    Object.keys(SELF_BAIL_FIELD_MAP).forEach(gId => {
+      const el = document.getElementById(gId);
       if(el){
-        el.addEventListener('input', () => { if(document.getElementById('isSelfBail').checked) syncGuarantorFromDefendant(); });
-        el.addEventListener('change', () => { if(document.getElementById('isSelfBail').checked) syncGuarantorFromDefendant(); });
+        el.addEventListener('input', () => { if(document.getElementById('isSelfBail').checked) syncDefendantFromGuarantor(); });
+        el.addEventListener('change', () => { if(document.getElementById('isSelfBail').checked) syncDefendantFromGuarantor(); });
       }
     });
   });
