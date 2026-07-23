@@ -62,21 +62,21 @@
     .container{max-width:1680px;width:100%;margin:0 auto;background:var(--card-bg);border-radius:24px;box-shadow:0 10px 30px rgba(0,0,0,0.08);overflow:hidden;transition:background-color .4s ease;}
 
     /* Header */
-    .header{background:var(--header-bg);color:#fff;padding:30px 40px 20px;text-align:center;position:relative;}
+    .header{background:var(--header-bg);color:#fff;padding:18px 40px 20px;text-align:center;position:relative;}
     .header h1{font-family:'Mali',cursive;margin:6px 0 0;font-size:30px;letter-spacing:.5px;}
     .header p{margin:6px 0 16px;opacity:.9;font-size:15px;}
-    .header-actions{display:flex;justify-content:center;align-items:center;gap:4px;flex-wrap:wrap;max-width:fit-content;margin:0 auto 6px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:999px;padding:6px;backdrop-filter:blur(8px);}
-    .header-actions .btn-pill{background:transparent;box-shadow:none;transform:translateY(0);transition:background .25s ease, color .25s ease, transform .25s ease, box-shadow .25s ease;}
+    .header-actions{display:flex;justify-content:center;align-items:center;gap:4px;flex-wrap:wrap;max-width:fit-content;margin:0 auto 4px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:999px;padding:5px;backdrop-filter:blur(8px);}
+    .header-actions .btn-pill{background:transparent;box-shadow:none;transform:translateY(0);transition:background .25s ease, color .25s ease, transform .25s ease, box-shadow .25s ease; padding:6px 13px; font-size:12.5px;}
     .header-actions .btn-pill:hover{background:#ffffff;color:var(--primary-color);transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,0.28);}
     .btn-pill{background:rgba(255,255,255,0.18);border:none;color:#fff;padding:8px 16px;border-radius:20px;cursor:pointer;font-family:'Sarabun';font-weight:600;font-size:14px;backdrop-filter:blur(5px);transition:background .2s; display:flex; align-items:center; gap:6px;}
     .btn-pill:hover{background:rgba(255,255,255,0.3);}
-    .theme-switch-wrapper{display:flex;align-items:center;gap:8px;font-size:15px;}
-    .theme-switch{display:inline-block;height:24px;position:relative;width:46px;}
+    .theme-switch-wrapper{display:flex;align-items:center;gap:6px;font-size:13px; padding:0 4px;}
+    .theme-switch{display:inline-block;height:20px;position:relative;width:40px;}
     .theme-switch input{display:none;}
-    .theme-switch .slider{background-color:rgba(255,255,255,0.35);bottom:0;cursor:pointer;left:0;position:absolute;right:0;top:0;transition:.3s;border-radius:24px;}
-    .theme-switch .slider:before{background-color:#fff;bottom:3px;content:"";height:18px;left:3px;position:absolute;transition:.3s;width:18px;border-radius:50%;}
+    .theme-switch .slider{background-color:rgba(255,255,255,0.35);bottom:0;cursor:pointer;left:0;position:absolute;right:0;top:0;transition:.3s;border-radius:20px;}
+    .theme-switch .slider:before{background-color:#fff;bottom:3px;content:"";height:14px;left:3px;position:absolute;transition:.3s;width:14px;border-radius:50%;}
     .theme-switch input:checked + .slider{background-color:rgba(0,0,0,0.35);}
-    .theme-switch input:checked + .slider:before{transform:translateX(22px);}
+    .theme-switch input:checked + .slider:before{transform:translateX(20px);}
 
     /* Tab bar */
     .tab-bar{display:flex;gap:6px;padding:14px 20px 0;max-width:1300px;margin:0 auto;}
@@ -98,7 +98,7 @@
     @media(min-width:1400px){
       body{padding:40px;}
       .container{max-width:1680px;}
-      .header{padding:34px 48px 22px;}
+      .header{padding:22px 48px 22px;}
       .header h1{font-size:32px;}
       .system-panel{max-width:1400px;padding:34px 20px 10px;}
       .section-title{font-size:20px;margin-bottom:26px;}
@@ -419,8 +419,8 @@
         <span>🌙</span>
       </div>
     </div>
-    <h1>⚖️ ระบบออกเอกสารประกันตัว (Word)</h1>
-    <p>สภ.ระเบาะไผ่ | ฝังข้อมูลลงไฟล์แบบฟอร์ม .docx มาตรฐานของสถานีโดยตรง</p>
+    <h1>⚖️ ระบบประกันตัวผู้ต้องหา สภ.ระเบาะไผ่</h1>
+    <p>ส่งออกเป็นไฟล์แบบฟอร์ม .docx ตามมาตรฐานของสถานีโดยตรง</p>
   </div>
 
   <div class="tab-bar">
